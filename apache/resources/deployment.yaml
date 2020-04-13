@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: foobar-nginx
+  name: foobar-apache
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      kubernetes.io/os: "linux"
+  template:
+    metadata:
+      labels:
+        app: foobar-apache
+        kubernetes.io/os: "linux"
+    spec:
+      containers:
+      - image: httpd:latest
+        imagePullPolicy: IfNotPresent
+        name: foobar-apache
