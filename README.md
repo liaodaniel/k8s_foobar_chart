@@ -1,0 +1,1 @@
+# k8s_foobar_chart
